@@ -14,44 +14,35 @@ const Products = props => {
     sortingOption,
   } = props;
 
-  let filteredProducts;
+  const regexp = new RegExp(searchQuery, "gi");
+  const filteredProducts = products.filter(
+    product => !!product.name.match(regexp)
+  );
 
-  if (handleSort) {
-    sortProducts(sortingOption);
+  switch (handleSort && sortingOption) {
+    case "price-ascending":
+      filteredProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "price-descending":
+      filteredProducts.sort((a, b) => b.price - a.price);
+      break;
+    case "byname":
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
   }
-
-  function sortProducts(sortType) {
-    if (sortType === "price-ascending") {
-      filteredProducts = products.sort((a, b) => a.price - b.price);
-    } else if (sortType === "price-descending") {
-      filteredProducts = products.sort((a, b) => b.price - a.price);
-    } else if (sortType === "byname") {
-      filteredProducts = products.sort((a, b) => a.name.localeCompare(b.name));
-    } 
-    return filteredProducts;
-  }
-
-  function searchProduct(searchQuery) {
-    return function(product) {
-      return (
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        !searchQuery
-      );
-    };
-  }
-
-  filteredProducts = products.filter(searchProduct(searchQuery));
 
   //the list of products to be returned in the ProductCard component
   let productView;
 
-  if ((filteredProducts.length <= 0 && !searchQuery) || loading) {
+  if ((!filteredProducts.length && !searchQuery) || loading) {
     productView = <Loader />;
-  } else if ((filteredProducts.length <= 0 && searchQuery) || error) {
+  } else if ((!filteredProducts.length && searchQuery) || error) {
     productView = <div className="error">{error}</div>;
   } else {
-    productView = <ProductCard products={filteredProducts} />;
-  } 
+    productView = filteredProducts.map(product => (
+      <ProductCard product={product} key={`product-${product.id}`} />
+    ));
+  }
 
   return (
     <section className="section section--products">
@@ -59,8 +50,7 @@ const Products = props => {
         <h2 className="header__text">Products</h2>
       </header>
       <Sort handleSort={handleSort} />
-
-      {productView}
+      <div className="products-container">{productView}</div>
     </section>
   );
 };
