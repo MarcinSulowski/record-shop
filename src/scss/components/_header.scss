@@ -1,0 +1,11 @@
+@import '../base/variables';
+
+.main-header {
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main-header__title {
+    }
+}

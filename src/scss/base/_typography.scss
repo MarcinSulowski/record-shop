@@ -1,0 +1,27 @@
+@import "variables";
+
+h1 {
+  font-family: $secondary-font;
+  font-size: $h1-font-size;
+  font-weight: $font-regular;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-regular;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-regular;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  font-weight: $font-regular;
+}
+
+.text {
+  font-size: $base-font-size;
+}

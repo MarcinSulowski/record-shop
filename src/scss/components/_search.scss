@@ -1,0 +1,30 @@
+@import "../base/variables";
+
+.search {
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
+  padding: 1em;
+
+  .search__input {
+    box-sizing: border-box;
+    background-color: $white;
+    border-radius: 2em;
+    padding: 1.2em 2em;
+    border: 0.2em solid $grey;
+    color: $black;
+    width: 100%;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      letter-spacing: 0.1em;
+      font-family: $base-font;
+      color: $grey;
+    }
+  }
+}

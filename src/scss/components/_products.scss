@@ -1,0 +1,44 @@
+@import "../base/variables";
+
+.section--products {
+    .header--section {
+        display: inline-block;
+        margin: 0 2em 4em 0;
+    }
+}
+
+.products-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.product {
+    background-color: $white;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 21%;
+    text-align: center;
+    margin-bottom: 4em;
+    box-shadow: 0 0 .1em .1em $grey;
+
+    &:last-of-type {
+       display: inline-block;
+    }
+
+        .product__image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1em;
+        }
+
+        .product__caption {
+            margin-bottom: 1em;
+        }
+
+        .product__price {
+            margin-bottom: 1em;
+        }
+}
