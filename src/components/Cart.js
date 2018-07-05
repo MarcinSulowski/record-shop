@@ -19,6 +19,7 @@ const Cart = props => {
       </button>
 
       <div className="cart-container">
+        {!cart.length && <div className="empty-cart">Your cart is empty</div>}
         {cart.map(item => (
           <CartItem
             key={`cart-item-${item.id}`}
@@ -28,7 +29,7 @@ const Cart = props => {
             updateQuantity={updateQuantity}
           />
         ))}
-        <p className="cart-total"></p>
+        <p className="cart-total" />
       </div>
     </section>
   );
