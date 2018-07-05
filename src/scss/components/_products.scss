@@ -1,33 +1,29 @@
 @import "../base/variables";
 
-.section--products {
-    .header--section {
-        display: inline-block;
-        margin: 0 2em 4em 0;
-    }
+
+.products-section {
+    position: relative;
 }
 
 .products-container {
-    width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .product {
-    background-color: $white;
     display: flex;
     flex-flow: column;
+    background-color: $white;
     justify-content: space-between;
-    width: 21%;
+    flex: 0 0 22%;
     text-align: center;
-    margin-bottom: 4em;
+    margin-bottom: 3em;
     box-shadow: 0 0 .1em .1em $grey;
 
-    &:last-of-type {
-       display: inline-block;
+    &:not(:nth-of-type(4n+4)) {
+        margin-right: 4%;
     }
-
         .product__image {
             width: 100%;
             height: auto;
@@ -35,10 +31,10 @@
         }
 
         .product__caption {
-            margin-bottom: 1em;
+            padding: 0 .5em;
+
         }
 
         .product__price {
-            margin-bottom: 1em;
         }
 }

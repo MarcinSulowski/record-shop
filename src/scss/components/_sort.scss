@@ -1,20 +1,22 @@
 @import "../base/variables";
 
 .sort-select {
+    position: absolute;
+    left: 13em;
+    top: 0;
     -webkit-appearance: button;
-    -webkit-border-radius: 2px;
-    -webkit-padding-end: 20px;
-    -webkit-padding-start: 2px;
+    appearance: button;
+    -webkit-border-radius: 1em;
+    -webkit-padding-end: 1em;
+    -webkit-padding-start: 1em;
     -webkit-user-select: none;
     background-color: $white;
-    border: 1px solid $grey;
-    border-radius: 1em;
-    color: #555;
-    font-size: inherit;
-    margin: 20px;
-    overflow: hidden;
-    padding: .4em 1em;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 20em;
+    box-shadow: 0 0 1px 1px lighten($grey, 50%);
+    border-radius: 0;
+    font-size: .8em;
+    color: lighten($grey, 20%);
+    padding: .5em 1em;
+    letter-spacing: .1em;
+    width: 15em;
+    outline: none;
  }
