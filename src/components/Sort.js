@@ -17,10 +17,10 @@ const Sort = (props) => {
 
   return (
     <select className="sort-select" name="sort">
-      <option value="">Sort records</option>
-      <option value="byname">By name</option>
-      <option value="price-ascending">By price (low to high)</option>
-      <option value="price-descending">By price (high to low)</option>
+      <option className="sort-select__option" value="">Sort records</option>
+      <option className="sort-select__option" value="byname">By name</option>
+      <option className="sort-select__option" value="price-ascending">By price (low to high)</option>
+      <option className="sort-select__option" value="price-descending">By price (high to low)</option>
     </select>
   );
 };
