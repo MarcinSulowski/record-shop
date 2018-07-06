@@ -3,7 +3,7 @@ import CartItem from "./CartItem";
 import PropTypes from "prop-types";
 
 const Cart = props => {
-  const { cart, removeItem, updateQuantity, quantity, totalAmount } = props;
+  const { cart, removeItem, updateQuantity, quantity } = props;
 
   const showCart = () => {
     document.querySelector(".cart-container").classList.toggle("collapsed");
@@ -18,7 +18,7 @@ const Cart = props => {
         Show cart
       </button>
 
-      <div className="cart-container">
+      <div className="cart-container collapsed">
         {!cart.length && <div className="empty-cart">Your cart is empty</div>}
         {cart.map(item => (
           <CartItem
@@ -29,7 +29,15 @@ const Cart = props => {
             updateQuantity={updateQuantity}
           />
         ))}
-        <p className="cart-total" />
+        {cart.length > 0 && (
+          <p className="cart-total">
+            Total amount:{" "}
+            {cart
+              .map(item => item.price * item.quantity)
+              .reduce((acc, val) => acc + val, 0)}{" "}
+            PLN
+          </p>
+        )}
       </div>
     </section>
   );
@@ -37,7 +45,6 @@ const Cart = props => {
 
 Cart.propTypes = {
   cart: PropTypes.array.isRequired,
-  totalAmount: PropTypes.number.isRequired,
   removeItem: PropTypes.func.isRequired,
   quantity: PropTypes.number.isRequired,
   updateQuantity: PropTypes.func.isRequired,

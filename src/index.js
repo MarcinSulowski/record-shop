@@ -30,8 +30,6 @@ class App extends React.Component {
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
     this.updateQuantity = this.updateQuantity.bind(this);
-    this.calcTotalItems = this.calcTotalItems.bind(this);
-    this.calcTotalAmount = this.calcTotalAmount.bind(this);
   }
 
   componentDidMount() {
@@ -56,7 +54,7 @@ class App extends React.Component {
   }
   // Add an item to cart
   handleAddToCart(item) {
-    this.setState({ cart: [...this.state.cart, item] }, this.calcTotalItems);
+    this.setState({ cart: [...this.state.cart, item] });
   }
 
   // Remove item from cart
@@ -64,22 +62,7 @@ class App extends React.Component {
     const newCart = [...this.state.cart];
     const idx = newCart.indexOf(item);
     newCart.splice(idx, 1);
-    this.setState({ cart: newCart }, this.calcTotalItems);
-  }
-
-  calcTotalItems() {
-    this.setState({ totalItems: this.state.cart.length }, this.calcTotalAmount);
-  }
-
-  calcTotalAmount() {
-    let total = 0;
-    let cart = this.state.cart;
-    for (var i = 0; i < cart.length; i++) {
-      total += cart[i].price * parseInt(cart[i].quantity, 10);
-    }
-    this.setState({
-      totalAmount: total,
-    });
+    this.setState({ cart: newCart });
   }
 
   updateQuantity(quantity) {
@@ -100,7 +83,6 @@ class App extends React.Component {
     const {
       products,
       cart,
-      totalAmount,
       searchQuery,
       quantity,
       loading,
@@ -121,7 +103,6 @@ class App extends React.Component {
           removeItem={this.handleRemoveFromCart}
           quantity={quantity}
           updateQuantity={this.updateQuantity}
-          totalAmount={totalAmount}
         />
         <Products
           handleSort={this.handleSort}
