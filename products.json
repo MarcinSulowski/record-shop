@@ -1,0 +1,130 @@
+{
+  "records": [
+    {
+      "id": 1,
+      "name": "John Coltrane – A Love Supreme",
+      "price": 120,
+      "image": "./images/jc-love-supreme.jpg",
+      "category": "jazz"
+    },
+    {
+      "id": 2,
+      "name": "John Coltrane – My Favourite Things",
+      "price": 60,
+      "image": "./images/jc-my-favourite-things.jpg",
+      "category": "jazz"
+    },
+    {
+      "id": 3,
+      "name": "David Bowie – Blackstar",
+      "price": 48,
+      "image": "./images/blackstar.jpg",
+      "category": "rock"
+    },
+    {
+      "id": 4,
+      "name": "Thelonious Monk - Underground",
+      "price": 92,
+      "image": "./images/monk.jpeg",
+      "category": "jazz"
+    },
+    {
+      "id": 5,
+      "name": "Charles Mingus - Pithecanthropus Erectus",
+      "price": 56,
+      "image": "./images/mingus.jpg",
+      "category": "jazz"
+    },
+    {
+      "id": 6,
+      "name": "Them Crooked Vultures - Them Crooked Vultures",
+      "price": 76,
+      "image": "./images/vultures.jpg",
+      "category": "rock"
+    },
+    {
+      "id": 7,
+      "name": "Stevie Ray Vaughan - Couldn't Stand The Weather",
+      "price": 82,
+      "image": "./images/srv.jpg",
+      "category": "blues"
+    },
+    {
+      "id": 8,
+      "name": "Jimi Hendrix - Electric Ladyland",
+      "price": 65,
+      "image": "./images/hendrix.jpg",
+      "category": "rock"
+    },
+    {
+      "id": 9,
+      "name": "Miles Davis – Sketches of Spain",
+      "price": 60,
+      "image": "./images/miles.jpg",
+      "category": "jazz"
+    },
+    {
+      "id": 10,
+      "name": "Herbie Hancock - Head Hunters",
+      "price": 75,
+      "image": "./images/hanckock.jpg",
+      "category": "jazz"
+    },
+    {
+      "id": 11,
+      "name": "Derek Trucks - Roadsongs",
+      "price": 22,
+      "image": "./images/trucks.jpg",
+      "category": "blues"
+    },
+    {
+      "id": 12,
+      "name": "Buddy Guy - Feels Like Rain",
+      "price": 48,
+      "image": "./images/buddy.jpg",
+      "category": "blues"
+    },
+    {
+      "id": 13,
+      "name": "Otis Taylor - My World Is Gone",
+      "price": 75,
+      "image": "./images/taylor.jpeg",
+      "category": "blues"
+    },
+    {
+      "id": 14,
+      "name": "Robert Plant - Dreamland",
+      "price": 66,
+      "image": "./images/plant.jpg",
+      "category": "rock"
+    },
+    {
+      "id": 15,
+      "name": "John Fogerty - Blue Moon Swamp",
+      "price": 72,
+      "image": "./images/fogetry.jpg",
+      "category": "rock"
+    },
+    {
+      "id": 16,
+      "name": "James Brown - Super Bad",
+      "price": 45,
+      "image": "./images/jbrown.jpg",
+      "category": "funk"
+    },
+    {
+      "id": 17,
+      "name": "Sly Stone - Life",
+      "price": 60,
+      "image": "./images/sly.jpg",
+      "category": "funk"
+    },
+    {
+      "id": 18,
+      "name": "Funkadelic - Maggot Brain",
+      "price": 75,
+      "image": "./images/funkadelic.jpg",
+      "category": "funk"
+    }
+  ]
+}
