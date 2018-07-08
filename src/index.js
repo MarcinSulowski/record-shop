@@ -34,6 +34,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchProducts();
+
+    if (sessionStorage["cachedCart"]) {
+      this.setState({
+        cart: [...JSON.parse(sessionStorage["cachedCart"])],
+      });
+    }
   }
 
   fetchProducts() {
@@ -52,21 +58,39 @@ class App extends React.Component {
         });
       });
   }
+  
   // Add an item to cart
   handleAddToCart(item) {
-    this.setState({ cart: [...this.state.cart, item] });
+    const duplicate = this.state.cart.find(i => i.id === item.id);
+
+    if (duplicate) {
+      duplicate.quantity += 1;
+
+      sessionStorage["cachedCart"] = JSON.stringify([...this.state.cart]);
+      this.setState({ cart: [...JSON.parse(sessionStorage["cachedCart"])] });
+    } else {
+      sessionStorage["cachedCart"] = JSON.stringify([...this.state.cart, item]);
+      this.setState({ cart: [...JSON.parse(sessionStorage["cachedCart"])] });
+    }
   }
 
-  // Remove item from cart
+  // Remove an item from cart
   handleRemoveFromCart(item) {
     const newCart = [...this.state.cart];
     const idx = newCart.indexOf(item);
     newCart.splice(idx, 1);
+
     this.setState({ cart: newCart });
+    sessionStorage.setItem("cachedCart", JSON.stringify(newCart));
   }
 
-  updateQuantity(quantity) {
-    this.setState({ quantity });
+  // update products quantity
+  updateQuantity() {
+    sessionStorage["cachedCart"] = JSON.stringify([...this.state.cart]);
+
+    this.setState({
+      cart: [...JSON.parse(sessionStorage["cachedCart"])],
+    });
   }
 
   //Sort products
@@ -77,6 +101,7 @@ class App extends React.Component {
   // Search products
   handleSearch(e) {
     this.setState({ searchQuery: e.target.value });
+    console.log(this.state.cart);
   }
 
   render() {
@@ -101,7 +126,6 @@ class App extends React.Component {
         <Cart
           cart={cart}
           removeItem={this.handleRemoveFromCart}
-          quantity={quantity}
           updateQuantity={this.updateQuantity}
         />
         <Products
