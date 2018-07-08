@@ -42,7 +42,7 @@ const Products = props => {
   if ((!filteredProducts.length && !searchQuery) || loading) {
     productView = <Loader />;
   } else if ((!filteredProducts.length && searchQuery) || error) {
-    productView = <div className="error">{error}</div>;
+    productView = <div className="no-match">No products were found matching your search</div>;
   } else {
     productView = filteredProducts.map(product => (
       <ProductCard product={product} quantity={quantity} updateQuantity={updateQuantity} handleAddToCart={handleAddToCart} key={`product-${product.id}`} />
