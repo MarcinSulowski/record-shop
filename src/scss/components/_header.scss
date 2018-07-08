@@ -1,7 +1,32 @@
 @import "../base/variables";
+@import "../helpers/mixins";
 
 .main-header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @include mq("phablet", max) {
+    margin-bottom: 1em;
+  }
+
+  .main-header__title {
+    font-family: $secondary-font;
+    text-transform: uppercase;
+
+    @include mq("tablet", max) {
+      font-size: 3.6em;
+    }
+
+    @include mq("phablet", max) {
+      font-size: 3em;
+    }
+
+    @include mq("phone", max) {
+      font-size: 2.6em;
+    }
+    @include mq("phone-small", max) {
+      font-size: 2.2em;
+    }
+  }
 }

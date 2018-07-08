@@ -1,9 +1,13 @@
 @import "variables";
-@import "typography";
 @import "../helpers/mixins";
 
 a {
   text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 .page {
@@ -12,10 +16,29 @@ a {
   color: $black;
   letter-spacing: 0.1em;
   padding: 2em 8em;
+  
+  @include mq ('tablet-wide', max) {
+    padding: 2em 4em;
+  }
+
+  @include mq ('tablet-small', max) {
+    padding: 2em;
+  }
+
+  @include mq ('phablet', max) {
+    padding: 1em;
+  }
+  @include mq ('phone-wide', max) {
+    font-size: .9em;
+  }
 }
 
 .section-header {
-  margin-bottom: 3em;
+  .section-header__title {
+    @include mq ('phablet', max) {
+      font-size: 1.2em;
+    }
+  }
 }
 
 .btn {
@@ -33,6 +56,9 @@ a {
     font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    @include mq ('tablet', max) {
+      font-size: .7em;
+    }
   }
 
   &--add {
@@ -49,11 +75,31 @@ a {
   border-radius: 50%;
   background-color: $black;
 
+  @include mq("tablet", max) {
+    width: 4.4em;
+    height: 4.4em;  
+  }
+
+  @include mq("phone-wide", max) {
+    width: 3.6em;
+    height: 3.6em;  
+  }
+
   .vinyl__inner {
     @include center(both);
     width: 2em;
     height: 2em;
     border-radius: 50%;
     background-color: $yellow;
+
+    @include mq("tablet", max) {
+      width: 1.4em;
+      height: 1.4em;  
+    }
+
+    @include mq("phone-wide", max) {
+      width: 1.2em;
+      height: 1.2em;  
+    }
   }
 }

@@ -1,18 +1,30 @@
 @import "../base/variables";
 
 .search {
-  width: 20em;
+  width: 22em;
   margin: 0 auto 4em;
+
+  @include mq("phablet", max) {
+    width: 17em;
+  }
+
+  @include mq("phone", max) {
+    width: 100%;
+  }
 
   .search__input {
     box-sizing: border-box;
     width: 100%;
     background-color: $white;
     border-radius: 2em;
-    padding: 0.8em 2em;
+    padding: .6em 2em;
     border: 2px solid $grey;
     font-size: 0.8em;
     letter-spacing: 0.1em;
+
+    @include mq("tablet", max) {
+      padding: .4em 2em;
+    }
 
     &:focus {
       outline: none;

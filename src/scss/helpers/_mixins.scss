@@ -42,7 +42,9 @@
   :-ms-input-placeholder      {@content}  
 }
 
-$breakpoints: ( "phone": 400px,
+$breakpoints: ( 
+"phone-small": 370px,
+"phone": 400px,
 "phone-wide": 480px,
 "phablet": 560px,
 "tablet-small": 640px,

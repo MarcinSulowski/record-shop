@@ -1,9 +1,9 @@
 @import "../base/variables";
+@import "../helpers/mixins";
 
 .sort-select {
   position: absolute;
-  left: 13em;
-  top: 0;
+  top: .6em;
   -webkit-appearance: button;
   appearance: button;
   -webkit-border-radius: 1em;
@@ -19,4 +19,15 @@
   letter-spacing: 0.1em;
   width: 15em;
   outline: none;
+
+  @include mq ('tablet-small', min) {
+    left: 13em;
+  }
+
+  @include mq ('tablet-small', max) {
+    right: 0;
+  }
+  @include mq ('phone', max) {
+    top: .3em;
+  }
 }
